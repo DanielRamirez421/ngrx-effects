@@ -1,4 +1,4 @@
-export class UsuarioModel {
+export class Usuario {
   constructor(
     public id: string,
     public email: string,

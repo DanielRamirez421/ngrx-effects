@@ -13,7 +13,12 @@ export class UsuarioService {
   constructor( private httpClient: HttpClient) { }
 
   getUsers() {
-    return this.httpClient.get<{data: Array<Usuario>}>(`${this.url_api}/users?per_page=6&delay=3`)
+    return this.httpClient.get<{data: Array<Usuario>}>(`${ this.url_api }/users?per_page=6&delay=3`)
+      .pipe( map((value: any) => value['data']) );
+  }
+
+  getUserById(id: string) {
+    return this.httpClient.get<{data: Array<Usuario>}>(`${ this.url_api }/users/${ id }`)
       .pipe( map((value: any) => value['data']) );
   }
 
